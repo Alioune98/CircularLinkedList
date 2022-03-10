@@ -1,5 +1,4 @@
 //Implementation of a Circular Linked List
-
 import java.util.Iterator;
 
 public class CircularList<E> implements Iterable<E>{
