@@ -117,7 +117,8 @@ public class CircularList<E> implements Iterable<E>{
             }else{
                 return null;
             }
-            return get();
+            nextCalled = true;
+            return next.data;
         }
 
         /**
@@ -125,9 +126,13 @@ public class CircularList<E> implements Iterable<E>{
          */
         @Override
         public void remove() {
-            previous.next = previous.next.next;
-            next();
-            size--;
+            if(nextCalled) {
+                previous.next = previous.next.next;
+                next();
+                size--;
+                nextCalled = false;
+            }
+            System.out.println("Next must be called first");
         }
     }
 }
